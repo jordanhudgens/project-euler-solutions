@@ -7,3 +7,5 @@ num = '7316717653133062491922511967442657474235534919493496983520312774506326239
 # Then the map method iterates through the 13 consecutive elements and returns the product
 # Max is called to ensure that if there are multiple sets of 13 elements that the largest value is returned
 p num.split(//).map(&:to_i).each_cons(13).map { |item| item.inject(:*) }.max
+
+# Answer => 23514624000
