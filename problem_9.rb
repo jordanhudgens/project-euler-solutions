@@ -29,3 +29,5 @@ end
 
 pt = PythagoreanTriplet.new(1000)
 pt.pythagorean_triplet_printer
+
+# => Answer: 31875000
