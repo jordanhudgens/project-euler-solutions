@@ -30,4 +30,5 @@ until path_array.size == 1 do
   path_array[-1]= path_array[-1].zip(maxes).map{|r1,r2| r1 + r2}.flatten
 end
 
-puts path_array # => 1074
+puts path_array
+# Solution => 1074
