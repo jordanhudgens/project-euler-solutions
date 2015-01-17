@@ -10,3 +10,4 @@ names = text.gsub!('"','').split(',').sort
 total = 0
 names.each_with_index { |name, index| total += score_for_name(name) * (index + 1) }
 puts total
+# Solution => 871198282
