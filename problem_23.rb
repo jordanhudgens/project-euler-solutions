@@ -1,25 +1,39 @@
 class Integer
-  def factors
-    1.upto(Math.sqrt(self)).select {|i| (self % i).zero?}.inject([]) do |f, i| 
-      f << self/i unless i == self/i
-      f << i
-    end.sort
+  def divisors_sum
+    n = self
+
+    return 0 if n == 1
+     
+    sum = 1 
+    sqrt = Math.sqrt(n)
+          
+    (2..sqrt).each do |i|
+      if n % i == 0       
+        sum += n / i if i != sqrt
+        sum += i
+      end
+    end
+     
+    sum  
+  end
+ 
+  def abundant?
+    self < divisors_sum
+  end
+end
+ 
+abundant_numbers = (1..28123).select { |n| n.abundant? }
+ 
+ans = []
+abundant_numbers.each do |x| 
+  abundant_numbers.each do |y|
+    s = x + y
+    break if s > 28123
+    ans << s
   end
 end
 
-class Array
-  def drop_last_element
-    self[0...-1]
-  end
-end
+not_ans = (1..28123).to_a - ans
+p not_ans.inject(0) { |agg, n| agg + n }
 
-def abundant_number?(num)
-  num.factors.drop_last_element.inject(:+) > num
-end
-
-def sum_of_abundant_numbers?(num1, num2)
-  # Need to find the sum of non-abundant numbers
-  # https://projecteuler.net/problem=23
-end
-
-p abundant_number?(12)
+# Solution => 4179871
