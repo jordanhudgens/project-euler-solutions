@@ -8,9 +8,8 @@
 # Step 8: Iterate through the collection with the map function, casting each element into integers with to_i
 # Step 9: Call the inject method with :+ as the argument to generate the sum of the values
 
-def factorial_value_sum_generator(f)
-  factorial = f
-  arr = (1..f).to_a.reverse.each { |i| factorial += factorial * (i - 1) }
+def factorial_value_sum_generator(factorial)
+  arr = (1..factorial).to_a.reverse.each { |i| factorial += factorial * (i - 1) }
   factorial.to_s.split(//).map(&:to_i).inject(:+)
 end
 
